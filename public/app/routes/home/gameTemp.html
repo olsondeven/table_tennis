@@ -1,0 +1,29 @@
+<div class="game-cont">
+  <div class="team">
+    <div class="team-name">
+      {{gameArr[3].name}}
+    </div>
+    <div class="team-score" ng-click="addScore('teamone')">
+      {{teamOneScore}}
+    </div>
+    <div class="team-server">
+
+    </div>
+  </div>
+
+  <div class="game-score">
+    {{gameArr[3].matchWins}} | {{gameArr[4].matchWins}}
+  </div>
+
+  <div class="team">
+    <div class="team-name">
+      {{gameArr[4].name}}
+    </div>
+    <div class="team-score" ng-click="addScore('teamtwo')">
+      {{teamTwoScore}}
+    </div>
+    <div class="team-server">
+
+    </div>
+  </div>
+</div>

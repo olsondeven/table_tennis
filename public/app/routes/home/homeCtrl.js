@@ -1,6 +1,9 @@
 angular.module('app').controller('homeCtrl',function($scope, $stateParams, mainService, $rootScope){
   //$scope.gameType is either singles or doubles
   //declare variables
+  $scope.totalPoint = 0;
+  $scope.teamOneScore = 0;
+  $scope.teamTwoScore = 0;
   $scope.gameType = "";
   $scope.matchType = 0;
   $scope.pointType = 0;
@@ -11,6 +14,19 @@ angular.module('app').controller('homeCtrl',function($scope, $stateParams, mainS
   $scope.teamOne = {};
   $scope.teamTwo = {};
   $scope.colorTwo = "";
+
+  // //add score
+  // $scope.addScore = function(str){
+  //
+  //   if(str === 'teamone'){
+  //     $scope.teamOneScore++;
+  //   }
+  //   if(str === 'teamtwo'){
+  //     $scope.teamTwoScore++;
+  //   }
+  //   $scope.totalPoint = $scope.teamOneScore + $scope.teamTwoScore;
+  // }
+
   $scope.singles = function(){
     $scope.gameType = "singles";
     mainService.setGameArr($scope.gameType);
@@ -131,5 +147,40 @@ angular.module('app').controller('homeCtrl',function($scope, $stateParams, mainS
       console.log('loser',$scope.chooser.name);
     }
   };
+
+
+
+
+
+  ///////////////
+  //CTRL FOR GAME//
+  ////////////////
+  if($scope.gameArr[1] && $scope.gameArr[2]){
+    $scope.pointType = $scope.gameArr[2];
+    $scope.matchTotal = $scope.gameArr[1];
+  }
+  //add score
+  $scope.addScore = function(str){
+    //check pointype
+    if(str === 'teamone'){
+      $scope.teamOneScore++;
+      //check to see if we need to increment matchwin, did they win
+      if($scope.teamOneScore === $scope.pointType+1){
+        
+      }
+      console.log($scope.teamOneScore);
+    }
+    if(str === 'teamtwo'){
+      $scope.teamTwoScore++;
+      console.log($scope.teamTwoScore);
+    }
+    //adding up correct score after point is made
+    $scope.totalPoint = $scope.teamOneScore + $scope.teamTwoScore;
+    //see if player wins
+    if($scope.gameArr[3].matchWins === ($scope.matchTotal-1)){
+      swal($scope.gameArr[3].name+' WINS!!!!');
+    }
+
+  }
 
 });//closing
