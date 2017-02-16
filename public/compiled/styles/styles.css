@@ -53,15 +53,44 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center; }
-  .home-cont .btn-big {
+  .home-cont .btn-big, .home-cont .btn-gamone {
+    font-size: 100px;
     width: 40vw;
-    height: 50vh;
+    height: 70vh;
     background-color: red;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center; }
-  .home-cont .btn-big:hover {
+  .home-cont .btn-big:hover, .home-cont .btn-gamone:hover {
     background-color: green; }
+  .home-cont .btn-gamone {
+    width: 30vw; }
+  .home-cont .btn-gameone:hover {
+    background-color: green; }
+
+.team-cont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between; }
+  .team-cont .arrow-left, .team-cont .arrow-right {
+    width: 100px;
+    height: 100px;
+    background-color: black; }
+  .team-cont .test {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .team-cont .test .color-cont {
+      display: flex;
+      justify-content: space-around; }
+      .team-cont .test .color-cont .btn-color {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
 
 /*# sourceMappingURL=maps/styles.css.map */

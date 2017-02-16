@@ -1,0 +1,16 @@
+<div class="team-cont">
+  <div class="arrow-left" ui-sref="gameSettingTwo">
+
+  </div>
+  <div class="test">
+    <input type="text" name="" value="" ng-model="nameOne" placeholder="Name">
+    <div class="color-cont" >
+      <div ng-click="colorSelect(color)" class="btn-color" ng-repeat="color in colors" style="background-color: {{color}}">
+        {{color}}
+      </div>
+    </div>
+  </div>
+  <div class="arrow-right" ng-click="setOne(colorOne)" ui-sref="teamTwo">
+
+  </div>
+</div>

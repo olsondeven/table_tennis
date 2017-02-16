@@ -7,8 +7,9 @@
   align-items: center;
 
   .btn-big{
+    font-size: 100px;
     width: 40vw;
-    height: 50vh;
+    height: 70vh;
     background-color: red;
     cursor: pointer;
     display: flex;
@@ -18,4 +19,48 @@
   .btn-big:hover{
     background-color: green;
   }
+
+
+
+//game setting one
+  .btn-gamone{
+    @extend .btn-big;
+    width: 30vw;
+  }
+  .btn-gameone:hover{
+    background-color: green;
+  }
+
+}//closing for home cont
+
+.team-cont{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  .arrow-left{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+  .arrow-right{
+    @extend .arrow-left;
+  }
+  .test{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  .color-cont{
+    display: flex;
+    justify-content: space-around;
+    .btn-color{
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
 }
