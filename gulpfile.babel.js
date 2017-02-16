@@ -11,10 +11,10 @@ import CacheBuster from "gulp-cachebust";
 var cachebust = new CacheBuster();
 
 const paths = {
-    scssSource: './public/styles/**/*.scss',
-    scssDest: './public/compiled/styles',
-    jsSource: './public/app/**/*.js',
-    jsDest: './public/compiled/js'
+    scssSource: './styles/**/*.scss',
+    scssDest: './compiled/styles',
+    jsSource: './app/**/*.js',
+    jsDest: './compiled/js'
 };
 //delete compile file
 gulp.task("clean", function(cb){
