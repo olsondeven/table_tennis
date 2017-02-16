@@ -1,3 +1,14 @@
 angular.module('app').controller('homeCtrl',function($scope, $stateParams, mainService, $rootScope){
-  $scope.test = "HELLO WORLD";
+  //gametype is either singles or doubles
+  //declare variables
+  let gameType = "";
+  $scope.singles = function(){
+    gameType = "singles";
+    console.log(gameType);
+  }
+  $scope.doubles = function(){
+    gameType = "doubles";
+    console.log(gameType);
+  }
+  $scope.test = "HELLOWORLD";
 })//closing

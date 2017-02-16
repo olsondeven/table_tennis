@@ -47,7 +47,21 @@ body {
 body {
   margin: 0px; }
 
-p {
-  background-color: red; }
+.home-cont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .home-cont .btn-big {
+    width: 40vw;
+    height: 50vh;
+    background-color: red;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .home-cont .btn-big:hover {
+    background-color: green; }
 
 /*# sourceMappingURL=maps/styles.css.map */
