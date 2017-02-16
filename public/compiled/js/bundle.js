@@ -70,50 +70,44 @@ angular.module('app').service('mainService', function ($http) {
     return service;
   };
   this.setMatchWin = function (str) {
-    if (str === 'teamone') {}
+    if (str === 'teamone') {
+      gameArr[3].matchWins++;
+    } else if (str === 'teamtwo') {
+      gameArr[4].matchWins++;
+    }
+  };
+  this.resetArr = function () {
+    gameArr = [];
   };
 }); //closing
 'use strict';
 
-angular.module('app').controller('homeCtrl', function ($scope, $stateParams, mainService, $rootScope) {
-  //$scope.gameType is either singles or doubles
+angular.module('app').controller('homeCtrl', function ($scope, $state, $stateParams, mainService, $rootScope) {
   //declare variables
-  $scope.totalPoint = 0;
+  var totalPoint = 0;
   $scope.teamOneScore = 0;
   $scope.teamTwoScore = 0;
   $scope.gameType = "";
   $scope.matchType = 0;
   $scope.pointType = 0;
   $scope.colors = ['red', 'blue', 'purple', 'green', 'orange', 'yellow'];
-  $scope.nameOne = "";
   $scope.colorOne = '';
+  $scope.nameOne = "";
   $scope.nameTwo = "";
   $scope.teamOne = {};
   $scope.teamTwo = {};
-  $scope.colorTwo = "";
 
-  // //add score
-  // $scope.addScore = function(str){
-  //
-  //   if(str === 'teamone'){
-  //     $scope.teamOneScore++;
-  //   }
-  //   if(str === 'teamtwo'){
-  //     $scope.teamTwoScore++;
-  //   }
-  //   $scope.totalPoint = $scope.teamOneScore + $scope.teamTwoScore;
-  // }
-
-  $scope.singles = function () {
-    $scope.gameType = "singles";
-    mainService.setGameArr($scope.gameType);
+  $scope.pickGameType = function (str) {
+    if (str === 'singles') {
+      $scope.gameType = "singles";
+      mainService.setGameArr($scope.gameType);
+    } else {
+      $scope.gameType = "doubles";
+      mainService.setGameArr($scope.gameType);
+    }
     console.log($scope.gameType);
   };
-  $scope.doubles = function () {
-    $scope.gameType = "doubles";
-    mainService.setGameArr($scope.gameType);
-    console.log($scope.gameType);
-  };
+
   $scope.match = function (num) {
     if (num === 3) {
       $scope.matchType = 3;
@@ -146,8 +140,8 @@ angular.module('app').controller('homeCtrl', function ($scope, $stateParams, mai
   };
   $scope.setOne = function (color) {
     //check to see if word have been placed in input
-    if ($scope.nameOne) {
-      console.log(true, $scope.nameOne, color);
+    if ($scope.nameOne && color) {
+      // console.log(true,$scope.nameOne,color);
       $scope.teamOne = {
         name: $scope.nameOne,
         color: color,
@@ -155,15 +149,17 @@ angular.module('app').controller('homeCtrl', function ($scope, $stateParams, mai
         matchWins: 0
       };
       mainService.setGameArr($scope.teamOne);
-      console.log($scope.teamOne, $scope.matchType);
+      // console.log($scope.teamOne, $scope.matchType);
+      $state.go('teamTwo');
     } else {
+      swal('Please enter name and select color');
       console.log(false);
     }
   };
   $scope.setTwo = function (color) {
     //check to see if word have been placed in input
-    if ($scope.nameTwo) {
-      console.log(true, $scope.nameTwo, color);
+    if ($scope.nameTwo && color) {
+      // console.log(true,$scope.nameTwo,color);
       // $scope.teamtwo = new TeamBuilder($scope.nameTwo, color);
       $scope.teamTwo = {
         name: $scope.nameTwo,
@@ -172,24 +168,27 @@ angular.module('app').controller('homeCtrl', function ($scope, $stateParams, mai
         matchWins: 0
       };
       mainService.setGameArr($scope.teamTwo);
-      console.log($scope.teamTwo, "two");
-      console.log($scope.teamOne, "one");
-      console.log(mainService.getGameArr());
+      // console.log($scope.teamTwo,"two");
+      // console.log($scope.teamOne,"one");
+      // console.log(mainService.getGameArr());
+      $state.go('coinFlip');
     } else {
-      console.log(false);
+      swal('Please enter name and select color');
+      // console.log(false);
     }
   };
   //every view gets
   $scope.gameArr = mainService.getGameArr();
+  $scope.service = mainService.getService();
   //only set chooser if teamone and teamtwo exist
   if ($scope.gameArr[3] && $scope.gameArr[4]) {
     var correctIndex = Math.floor(Math.random() * 2 + 3);
     $scope.chooser = $scope.gameArr[correctIndex];
-    console.log($scope.chooser.name);
+    // console.log($scope.chooser.name);
   }
   $scope.coinFlipper = function () {
     var coin = Math.floor(Math.random() * 2);
-    console.log(coin);
+    // console.log(coin);
     if (coin) {
       //do for both view(scope) and data(service) MVC
       //select correct team = correctIndex
@@ -227,29 +226,85 @@ angular.module('app').controller('homeCtrl', function ($scope, $stateParams, mai
   ///////////////
   //CTRL FOR GAME//
   ////////////////
+  $scope.teamOneBool = false;
+  $scope.teamTwoBool = false;
+  $scope.service = mainService.getService();
+  if ($scope.service === 'teamOne') {
+    $scope.teamOneBool = !$scope.teamOneBool;
+  } else if ($scope.service === 'teamTwo') {
+    $scope.teamTwoBool = !$scope.teamTwoBool;
+  }
+  console.log($scope.service, 'service');
+
   if ($scope.gameArr[1] && $scope.gameArr[2]) {
     $scope.pointType = $scope.gameArr[2];
     $scope.matchTotal = $scope.gameArr[1];
   }
+
   //add score
   $scope.addScore = function (str) {
     //check pointype
+    /////////////////////////////
+    ////////team one////////////
+    ////////////////////////////
     if (str === 'teamone') {
       $scope.teamOneScore++;
-      //check to see if we need to increment matchwin, did they win
-      if ($scope.teamOneScore === $scope.pointType + 1) {}
-      console.log($scope.teamOneScore);
+      //check to see if we need to increment match win, did they win
+      if ($scope.teamOneScore > $scope.teamTwoScore + 1 && $scope.teamOneScore > $scope.pointType - 1) {
+        $scope.gameArr[3].matchWins += 1;
+        swal($scope.gameArr[3].name + ' WINS game!!!!');
+        $scope.teamOneScore = 0;
+        $scope.teamTwoScore = 0;
+        totalPoint = 0;
+        $scope.gameArr = mainService.getGameArr();
+      }
+      //see if player wins
+      if ($scope.gameArr[3].matchWins === $scope.matchTotal - 1) {
+        swal($scope.gameArr[3].name + ' WINS Match!!!!');
+        mainService.resetArr();
+        $state.go('home');
+      }
     }
+    /////////////////////////////
+    ////////team two////////////
+    ////////////////////////////
     if (str === 'teamtwo') {
       $scope.teamTwoScore++;
-      console.log($scope.teamTwoScore);
+      if ($scope.teamTwoScore > $scope.teamOneScore + 1 && $scope.teamTwoScore > $scope.pointType - 1) {
+        $scope.gameArr[4].matchWins += 1;
+        swal($scope.gameArr[4].name + ' WINS game!!!!');
+        $scope.teamOneScore = 0;
+        $scope.teamTwoScore = 0;
+        totalPoint = 0;
+        $scope.gameArr = mainService.getGameArr();
+        //see if player wins
+        if ($scope.gameArr[4].matchWins === $scope.matchTotal - 1) {
+          swal($scope.gameArr[4].name + ' WINS match!!!!');
+          mainService.resetArr();
+          $state.go('home');
+        }
+      }
     }
+
+    // both teams
     //adding up correct score after point is made
-    $scope.totalPoint = $scope.teamOneScore + $scope.teamTwoScore;
-    //see if player wins
-    if ($scope.gameArr[3].matchWins === $scope.matchTotal - 1) {
-      swal($scope.gameArr[3].name + ' WINS!!!!');
+    totalPoint = $scope.teamOneScore + $scope.teamTwoScore;
+
+    if ($scope.gameArr[2] === 11 && totalPoint >= 20) {
+      $scope.teamOneBool = !$scope.teamOneBool;
+      $scope.teamTwoBool = !$scope.teamTwoBool;
+    } else if ($scope.gameArr[2] === 11 && totalPoint % 2 === 0) {
+      $scope.teamOneBool = !$scope.teamOneBool;
+      $scope.teamTwoBool = !$scope.teamTwoBool;
     }
-  };
+
+    if ($scope.gameArr[2] === 21 && totalPoint >= 40) {
+      $scope.teamOneBool = !$scope.teamOneBool;
+      $scope.teamTwoBool = !$scope.teamTwoBool;
+    } else if ($scope.gameArr[2] === 21 && totalPoint % 5 === 0) {
+      $scope.teamOneBool = !$scope.teamOneBool;
+      $scope.teamTwoBool = !$scope.teamTwoBool;
+    }
+  }; //add fn closing
 }); //closing
 //# sourceMappingURL=bundle.js.map

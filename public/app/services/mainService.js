@@ -32,7 +32,12 @@ angular.module('app').service('mainService',function($http){
   }
   this.setMatchWin = function(str){
     if(str === 'teamone'){
-      
+      gameArr[3].matchWins++;
+    }else if(str === 'teamtwo'){
+      gameArr[4].matchWins++;
     }
+  }
+  this.resetArr = function(){
+    gameArr = [];
   }
 });//closing

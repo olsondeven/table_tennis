@@ -91,30 +91,51 @@ body {
         cursor: pointer;
         display: flex;
         justify-content: center;
-        align-items: center; }
+        align-items: center;
+        border: 1px solid white; }
+      .team-cont .test .color-cont .btn-color:hover {
+        border: 1px solid black; }
 
 .game-cont {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
   .game-cont .team {
-    width: 40vw;
-    height: 100vh;
-    background-color: red; }
+    width: 40%;
+    height: 100%; }
     .game-cont .team .team-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 70px;
       width: 100%;
       height: 20%;
-      background-color: yellow; }
+      border: 1px solid black; }
     .game-cont .team .team-score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 200px;
       width: 100%;
-      height: 70%;
-      background-color: blue; }
+      height: 60%;
+      border: 1px solid black;
+      cursor: pointer; }
     .game-cont .team .team-serve {
       width: 100%;
-      height: 10%;
-      background-color: pink; }
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black; }
+  .game-cont .game-score {
+    font-size: 300%;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
 
 /*# sourceMappingURL=maps/styles.css.map */
