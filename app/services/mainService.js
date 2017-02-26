@@ -1,17 +1,14 @@
 angular.module('app').service('mainService',function($http){
   let service = '';
   let gameArr = [];
-  //gametype 0
-  //matchType 1
-  //pointType 2
-  //teamOne 3
-  //teamTwo 4
-  // $scope.teamTwo = {
-  //   name: $scope.nameTwo,
-  //   color: color,
-  //   first: null,
-  //   matchWins:0
-  // };
+  let gameObj = {
+    gameType: '',
+    matches: 0,
+    points: 0
+  };
+  this.getGameObj = function(){
+    return gameObj;
+  }
   this.setGameArr = function(x){
     gameArr.push(x);
   };
