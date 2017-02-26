@@ -1,5 +1,5 @@
 {
-  "name": "secret_sale",
+  "name": "table_tennis",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DDD313/secret_sale.git"
+    "url": "git+https://github.com/olsondeven/table_tennis.git"
   },
   "author": "ddd313",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DDD313/secret_sale/issues"
+    "url": "https://github.com/olsondeven/table_tennis/issues"
   },
-  "homepage": "https://github.com/DDD313/secret_sale#readme",
+  "homepage": "https://github.com/olsondeven/table_tennis#readme",
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
