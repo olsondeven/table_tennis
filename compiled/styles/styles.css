@@ -51,12 +51,12 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center; }
   .home-cont .btn-big, .home-cont .btn-gamone {
-    font-size: 100px;
-    width: 40vw;
-    height: 70vh;
+    font-size: 300%;
+    width: 40%;
+    height: 100%;
     background-color: red;
     cursor: pointer;
     display: flex;
@@ -68,6 +68,13 @@ body {
     width: 30vw; }
   .home-cont .btn-gameone:hover {
     background-color: green; }
+
+@media (max-width: 700px) {
+  .home-cont {
+    flex-direction: column; }
+    .home-cont .btn-big, .home-cont .btn-gamone {
+      width: 100%;
+      height: 40%; } }
 
 .team-cont {
   width: 100vw;
