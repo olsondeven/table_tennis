@@ -110,9 +110,9 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
     // console.log(coin);
     mainService.setStarter(coin);
     $scope.gameObj = mainService.getGameObj();
-    if($scope.gameObj.start === 1){
-      swal($scope.gameObj.teamOneName+" serves first!!!!")
-    }
+
+    $scope.gameObj = mainService.getGameObj();
+
     if (coin) {
       //do for both view(scope) and data(service) MVC
       //select correct team = correctIndex
@@ -159,8 +159,10 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
   $scope.teamTwoBool = false;
   $scope.service = mainService.getService();
   if($scope.service === 'teamOne'){
+    swal($scope.gameArr[3].name+" serves first");
     $scope.teamOneBool = !$scope.teamOneBool;
   }else if($scope.service === 'teamTwo'){
+    swal($scope.gameArr[4].name+" serves first");
     $scope.teamTwoBool = !$scope.teamTwoBool;
   }
   console.log($scope.service,'service');
@@ -185,6 +187,7 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
         $scope.teamOneScore = 0;
         $scope.teamTwoScore = 0;
         totalPoint = 0;
+
         $scope.gameArr = mainService.getGameArr();
       }
       //see if player wins
@@ -205,6 +208,7 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
         $scope.teamOneScore = 0;
         $scope.teamTwoScore = 0;
         totalPoint = 0;
+        
         $scope.gameArr = mainService.getGameArr();
         //see if player wins
         if($scope.gameArr[4].matchWins === $scope.matchTotal-1){

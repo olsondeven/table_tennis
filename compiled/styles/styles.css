@@ -174,4 +174,18 @@ body {
     justify-content: center;
     align-items: center; }
 
+.coin-cont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .coin-cont .coin-btn {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green; }
+
 /*# sourceMappingURL=maps/styles.css.map */
