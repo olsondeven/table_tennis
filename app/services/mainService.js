@@ -2,12 +2,41 @@ angular.module('app').service('mainService',function($http){
   let service = '';
   let gameArr = [];
   let gameObj = {
-    gameType: '',
+    type: 0,
     matches: 0,
-    points: 0
+    points: 0,
+    teamOneName: '',
+    teamOneColor: '',
+    teamTwoName: '',
+    teamTwoColor: '',
+    start: 0
   };
   this.getGameObj = function(){
     return gameObj;
+  }
+  this.setType = function(num){
+    gameObj.type = num;
+  }
+  this.setMatches = function(num){
+    gameObj.matches = num;
+  }
+  this.setPoints = function(num){
+    gameObj.points = num;
+  }
+  this.setTeamNameOne = function(str){
+    gameObj.teamOneName = str;
+  }
+  this.setTeamColorOne = function(str){
+    gameObj.teamOneColor = str;
+  }
+  this.setTeamNameTwo = function(str){
+    gameObj.teamTwoName = str;
+  }
+  this.setTeamColorTwo = function(str){
+    gameObj.teamTwoColor = str;
+  }
+  this.setStarter = function(num){
+    gameObj.start = num;
   }
   this.setGameArr = function(x){
     gameArr.push(x);

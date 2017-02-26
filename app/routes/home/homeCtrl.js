@@ -6,7 +6,7 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
   $scope.gameType = "";
   $scope.matchType = 0;
   $scope.pointType = 0;
-  $scope.colors = ['red','blue','purple','green','orange','yellow'];
+  $scope.colors = ['red','blue','green','purple','orange','yellow'];
   $scope.colorOne = '';
   $scope.nameOne = "";
   $scope.nameTwo = "";
@@ -58,6 +58,7 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
     //check to see if word have been placed in input
     if ($scope.nameOne && color) {
       // console.log(true,$scope.nameOne,color);
+      mainService.setTeamNameOne($scope.nameOne);
       $scope.teamOne = {
         name: $scope.nameOne,
         color: color,
@@ -78,6 +79,7 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
     if ($scope.nameTwo && color) {
       // console.log(true,$scope.nameTwo,color);
       // $scope.teamtwo = new TeamBuilder($scope.nameTwo, color);
+      mainService.setTeamNameTwo($scope.nameTwo);
       $scope.teamTwo = {
         name: $scope.nameTwo,
         color: color,
@@ -106,6 +108,11 @@ angular.module('app').controller('homeCtrl',function($scope, $state, $stateParam
   $scope.coinFlipper = function(){
     var coin = Math.floor(Math.random()*2);
     // console.log(coin);
+    mainService.setStarter(coin);
+    $scope.gameObj = mainService.getGameObj();
+    if($scope.gameObj.start === 1){
+      swal($scope.gameObj.teamOneName+" serves first!!!!")
+    }
     if (coin) {
       //do for both view(scope) and data(service) MVC
       //select correct team = correctIndex
