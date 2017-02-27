@@ -18,21 +18,6 @@ a {
   transition: all 0.5s;
 }
 
-p:nth-child(2) a {
-  color: #fff;
-  font-family: Monoton;
-  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-  animation: neon1 1.5s ease-in-out infinite alternate;
-}
-
-p:nth-child(2) a:hover {
-  color: #FF1177;
-  -webkit-animation: none;
-  -moz-animation: none;
-  animation: none;
-}
-
 p:nth-child(1) a {
   font-size: 1.5em;
   color: #228DFF;
