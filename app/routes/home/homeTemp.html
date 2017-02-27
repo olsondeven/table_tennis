@@ -1,5 +1,11 @@
 <div class="home-cont">
-  <div class="btn-big" ng-click="pickGameType('singles')" ui-sref="gameSetting"><b>Singles</b></div>
-  <span>Select Game Type</span>
-  <div class="btn-big" ng-click="pickGameType('doubles')" ui-sref="gameSetting"><b>Doubles</b></div>
+  <div class="container">
+    <p class="blue"><a ui-sref="gameSetting" ng-click="pickGameType('singles')">SINGLES</a></p>
+  </div>
+  <!-- <a ui-sref="gameSetting" ng-click="pickGameType('singles')" class="fancy-button pop-onhover bg-gradient2"><span>singles</span></a> -->
+  <span>OR</span>
+  <!-- <a ui-sref="gameSetting" ng-click="pickGameType('doubles')" class="fancy-button pop-onhover bg-gradient2"><span>doubles</span></a> -->
+  <div class="container">
+    <p class="blue"><a ui-sref="gameSetting" ng-click="pickGameType('doubles')">DOUBLES</a></p>
+  </div>
 </div>
