@@ -4,8 +4,13 @@ angular.module('app', ['ui.router'])
   //default router
   //home page and landing page
   $stateProvider
-  .state('home', {
+  .state('open', {
     url: '/',
+    templateUrl: './app/routes/home/openTemp.html',
+    controller: 'homeCtrl'
+  })
+  .state('home', {
+    url: '/home',
     templateUrl: './app/routes/home/homeTemp.html',
     controller: 'homeCtrl'
   })

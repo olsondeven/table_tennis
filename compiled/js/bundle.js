@@ -3,8 +3,12 @@
 angular.module('app', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
   //default router
   //home page and landing page
-  $stateProvider.state('home', {
+  $stateProvider.state('open', {
     url: '/',
+    templateUrl: './app/routes/home/openTemp.html',
+    controller: 'homeCtrl'
+  }).state('home', {
+    url: '/home',
     templateUrl: './app/routes/home/homeTemp.html',
     controller: 'homeCtrl'
   }).state('gameSetting', {

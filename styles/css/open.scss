@@ -1,4 +1,80 @@
+@import '../styles';
 main{
   width: 100vw;
   height: 100vh;
+  background-color: $bg;
+  position: relative;
+  cursor: pointer;
+  p{
+    font-size: 12em;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    /* Safari */
+    -webkit-transform: rotate(-30deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-30deg);
+
+    /* IE */
+    -ms-transform: rotate(-30deg);
+
+    /* Opera */
+    -o-transform: rotate(-30deg);
+
+  }
+}
+@media (max-width: 1110px) {
+  main{
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg;
+    position: relative;
+    p{
+      font-size: 3.9em;
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      cursor: pointer;
+      /* Safari */
+      -webkit-transform: rotate(-30deg);
+
+      /* Firefox */
+      -moz-transform: rotate(-30deg);
+
+      /* IE */
+      -ms-transform: rotate(-30deg);
+
+      /* Opera */
+      -o-transform: rotate(-30deg);
+
+    }
+  }
+}
+@media (max-width: 450px) {
+  main{
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg;
+    position: relative;
+    p{
+      font-size: 2em;
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      cursor: pointer;
+      /* Safari */
+      -webkit-transform: rotate(-30deg);
+
+      /* Firefox */
+      -moz-transform: rotate(-30deg);
+
+      /* IE */
+      -ms-transform: rotate(-30deg);
+
+      /* Opera */
+      -o-transform: rotate(-30deg);
+
+    }
+  }
 }
