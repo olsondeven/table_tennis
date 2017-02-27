@@ -51,7 +51,8 @@ table {
   font-size: 100%;
   background-color: #343434; }
   .home-cont span {
-    font-family: Iceberg; }
+    font-family: Baloo;
+    color: #FFFFFF; }
   .home-cont .btn-big, .home-cont .btn-gamone {
     font-size: 300%;
     width: 40%;
@@ -74,9 +75,8 @@ table {
   .home-cont {
     flex-direction: column;
     align-items: center; }
-    .home-cont .btn-big, .home-cont .btn-gamone {
-      width: 100%;
-      height: 40%; }
+    .home-cont p {
+      font-size: 2.5em; }
     .home-cont .btn-gamone {
       height: 25vh; } }
 
@@ -220,7 +220,7 @@ p:nth-child(2) a:hover {
 p:nth-child(1) a {
   font-size: 1.5em;
   color: #228DFF;
-  font-family: Iceberg; }
+  font-family: "Sarpanch"; }
 
 p:nth-child(1) a:hover {
   -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
@@ -392,65 +392,23 @@ p a:hover {
     font-size: 3.5em; } }
 
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: #343434;
-  position: relative;
-  cursor: pointer; }
+  position: relative; }
   main p {
-    font-size: 12em;
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    /* Safari */
-    -webkit-transform: rotate(-30deg);
-    /* Firefox */
-    -moz-transform: rotate(-30deg);
-    /* IE */
-    -ms-transform: rotate(-30deg);
-    /* Opera */
-    -o-transform: rotate(-30deg); }
+    cursor: pointer;
+    padding-top: 10px;
+    font-size: 12em; }
 
-@media (max-width: 1110px) {
-  main {
-    width: 100vw;
-    height: 100vh;
-    background-color: #343434;
-    position: relative; }
-    main p {
-      font-size: 3.9em;
-      position: absolute;
-      top: 30%;
-      left: 10%;
-      cursor: pointer;
-      /* Safari */
-      -webkit-transform: rotate(-30deg);
-      /* Firefox */
-      -moz-transform: rotate(-30deg);
-      /* IE */
-      -ms-transform: rotate(-30deg);
-      /* Opera */
-      -o-transform: rotate(-30deg); } }
-
-@media (max-width: 450px) {
-  main {
-    width: 100vw;
-    height: 100vh;
-    background-color: #343434;
-    position: relative; }
-    main p {
-      font-size: 2em;
-      position: absolute;
-      top: 30%;
-      left: 10%;
-      cursor: pointer;
-      /* Safari */
-      -webkit-transform: rotate(-30deg);
-      /* Firefox */
-      -moz-transform: rotate(-30deg);
-      /* IE */
-      -ms-transform: rotate(-30deg);
-      /* Opera */
-      -o-transform: rotate(-30deg); } }
+@media (max-width: 1090px) {
+  main p {
+    font-size: 3em; }
+  main img {
+    max-width: 100%; } }
 
 /*# sourceMappingURL=maps/styles.css.map */

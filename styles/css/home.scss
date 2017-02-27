@@ -1,7 +1,8 @@
 @import '../styles';
 .home-cont{
   span{
-    font-family: Iceberg;
+    font-family: Baloo;
+    color: #FFFFFF;
   }
   width: 100vw;
   height: 100vh;
@@ -40,9 +41,8 @@
   .home-cont{
     flex-direction: column;
     align-items: center;
-    .btn-big{
-      width: 100%;
-      height: 40%;
+    p{
+      font-size: 2.5em;
     }
     .btn-gamone{
       height: 25vh;
@@ -174,4 +174,7 @@
     align-items: center;
     background-color: green;
   }
+}
+@media (max-width: 1090px) {
+
 }

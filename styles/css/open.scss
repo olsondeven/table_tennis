@@ -1,80 +1,27 @@
 @import '../styles';
 main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: $bg;
   position: relative;
-  cursor: pointer;
   p{
+    cursor: pointer;
+    padding-top:10px;
     font-size: 12em;
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    /* Safari */
-    -webkit-transform: rotate(-30deg);
-
-    /* Firefox */
-    -moz-transform: rotate(-30deg);
-
-    /* IE */
-    -ms-transform: rotate(-30deg);
-
-    /* Opera */
-    -o-transform: rotate(-30deg);
-
   }
+
 }
-@media (max-width: 1110px) {
+@media (max-width: 1090px) {
   main{
-    width: 100vw;
-    height: 100vh;
-    background-color: $bg;
-    position: relative;
     p{
-      font-size: 3.9em;
-      position: absolute;
-      top: 30%;
-      left: 10%;
-      cursor: pointer;
-      /* Safari */
-      -webkit-transform: rotate(-30deg);
-
-      /* Firefox */
-      -moz-transform: rotate(-30deg);
-
-      /* IE */
-      -ms-transform: rotate(-30deg);
-
-      /* Opera */
-      -o-transform: rotate(-30deg);
-
+      font-size: 3em;
     }
-  }
-}
-@media (max-width: 450px) {
-  main{
-    width: 100vw;
-    height: 100vh;
-    background-color: $bg;
-    position: relative;
-    p{
-      font-size: 2em;
-      position: absolute;
-      top: 30%;
-      left: 10%;
-      cursor: pointer;
-      /* Safari */
-      -webkit-transform: rotate(-30deg);
-
-      /* Firefox */
-      -moz-transform: rotate(-30deg);
-
-      /* IE */
-      -ms-transform: rotate(-30deg);
-
-      /* Opera */
-      -o-transform: rotate(-30deg);
-
+    img{
+      max-width: 100%;
     }
   }
 }

@@ -1,4 +1,4 @@
-
+@import '../styles';
 #container {
   width: 500px;
   margin: auto;
@@ -36,7 +36,7 @@ p:nth-child(2) a:hover {
 p:nth-child(1) a {
   font-size: 1.5em;
   color: #228DFF;
-  font-family: Iceberg;
+  font-family: $font;
 }
 
 p:nth-child(1) a:hover {
